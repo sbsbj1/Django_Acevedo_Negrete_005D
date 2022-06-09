@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+
+from .models import Accesorio
 
 
 
@@ -27,4 +29,12 @@ def registracion(request):
     return render(request, "registracion.html")
 
 def somos(request):
-    return render (request, "somos.html")
+    return render(request, "somos.html")
+
+def mostrar(request):
+    accesorios = Accesorio.objects.all()
+    datos = {
+        'accesorios' : accesorios
+    }
+    return render(request, 'mostrar.html', datos)
+

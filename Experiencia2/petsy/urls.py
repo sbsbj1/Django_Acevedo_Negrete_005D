@@ -1,6 +1,7 @@
+from django.contrib import admin
 from unicodedata import name
 from django.urls import path 
-from .views import calculadora, Contacto, Feriados, galeria, index, registracion, somos
+from .views import calculadora, Contacto, Feriados, galeria, index, registracion, somos,mostrar
 
 urlpatterns = [
     path('', index, name="index"),
@@ -10,5 +11,6 @@ urlpatterns = [
     path('galeria', galeria, name="galeria"),
     path('registracion', registracion, name="registracion"),
     path('somos', somos, name="somos"),
+    path('mostrar/', mostrar, name="mostrar")
 
 ]

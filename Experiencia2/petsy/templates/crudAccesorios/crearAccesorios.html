@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+
+
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        .error-control{
+            border: 1px solid red;
+        }
+
+        label.error{
+            color: red;
+            width: 200px;
+            font-size: 0.8em;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+<script>
+
+    $(function() 
+    {
+        $("#formulario").validate({
+              rules: {
+                  email: {
+                    patente: "required",
+                    marca: "required",
+                    modelo: "required",
+                    categoria: "required",
+              }   
+              
+          }, //rules
+      messages: {
+          patente: {
+              required: 'Ingrese patente del vehiculo ',
+          },
+          marca: {
+              required: 'Ingrese marca del vehiculo',
+          },
+          modelo:{
+              required: 'Ingrese modelo del vehiculo',
+          },
+          categoria:{
+              required: 'Seleccione una categoria',
+             },
+        }//messages
+     }); //$('#mi-formulario').validate
+    }); //function
+
+</script>
+
+
+
+    <title>Petsy</title>
+
+  </head>
+  <body>
+    <div class="container">
+
+    </div>
+
+
+  </body>
+
+  </html>
