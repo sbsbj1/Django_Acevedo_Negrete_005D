@@ -1,5 +1,8 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.views.decorators import csrf
+
+from .forms import AccesorioForm
 
 from .models import Accesorio
 
@@ -37,4 +40,35 @@ def mostrar(request):
         'accesorios' : accesorios
     }
     return render(request, 'mostrar.html', datos)
+
+
+def form_accesorio(request): 
+
+    if request.method=='POST':
+        accesorio_form = AccesorioForm(request.POST)
+        if accesorio_form.is_valid():
+            accesorio_form.save()
+            return redirect ('index')
+    else:
+        accesorio_form = AccesorioForm()
+    return render(request, 'crearAccesorios.html', {'accesorio_form': accesorio_form})
+
+
+def form_modaccesorio(request, id):
+    accesorio = Accesorio.objects.get(idProducto=id)
+    datos = {
+        'form': AccesorioForm(instance = accesorio)
+    }
+    if request.method=='POST':
+        formulario = AccesorioForm(data=request.POST, instance = accesorio)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect ('mostrar')
+        
+    return render(request, 'form_modaccesorio.html', datos)
+
+def form_del_accesorio(request,id):
+    accesorio = Accesorio.objects.get(idProducto=id)
+    accesorio.delete()
+    return redirect('mostrar')
 
