@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from tabnanny import verbose
 from django.db import models
 
@@ -16,6 +17,7 @@ class Accesorio(models.Model):
     clase = models.CharField(max_length=20, verbose_name='Tipo de Mascota')
     stock = models.IntegerField(verbose_name='Stock del producto')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to="productos", null=True, blank=True)
 
     def __str__(self):
         return self.idProducto

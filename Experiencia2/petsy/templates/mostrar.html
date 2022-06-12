@@ -80,7 +80,9 @@
                     <td>{{ ac.idProducto }}</td>
                     <td>{{ ac.clase }}</td>
                     <td>{{ ac.stock }}</td>
+                    <td>{{ ac.imagen }}</td>
                     <td><a href="{% url 'form_modaccesorio' ac.idProducto %}">Modificar</a></td>
+                    <td><a href="{% url 'form_del_accesorio' ac.idProducto %}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             {% endfor %}
             </tbody>

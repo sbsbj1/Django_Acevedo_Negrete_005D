@@ -45,7 +45,7 @@ def mostrar(request):
 def form_accesorio(request): 
 
     if request.method=='POST':
-        accesorio_form = AccesorioForm(request.POST)
+        accesorio_form = AccesorioForm(request.POST, files=request.FILES)
         if accesorio_form.is_valid():
             accesorio_form.save()
             return redirect ('index')
@@ -60,7 +60,7 @@ def form_modaccesorio(request, id):
         'form': AccesorioForm(instance = accesorio)
     }
     if request.method=='POST':
-        formulario = AccesorioForm(data=request.POST, instance = accesorio)
+        formulario = AccesorioForm(data=request.POST, instance = accesorio, files=request.FILES)
         if formulario.is_valid():
             formulario.save()
             return redirect ('mostrar')

@@ -116,7 +116,7 @@
         <h2>Creando Accesorios</h2>
 
         <div class="row">
-            <form action="#" method="POST" id="formulario">
+            <form action="#" method="POST" id="formulario" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     {{accesorio_form.idProducto.label}}
@@ -133,6 +133,10 @@
                 <div class="form-group">
                     {{accesorio_form.categoria.label}}
                     {{accesorio_form.categoria}}
+                </div>
+                <div class="form-group">
+                  {{accesorio_form.imagen.label}}
+                  {{accesorio_form.imagen}}
                 </div>
 
                 <br><br>

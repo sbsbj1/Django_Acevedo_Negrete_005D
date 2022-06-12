@@ -13,12 +13,13 @@ class AccesorioForm(forms.ModelForm):
 
     class Meta:
         model = Accesorio
-        fields = ['idProducto', 'clase', 'stock', 'categoria']
+        fields = ['idProducto', 'clase', 'stock', 'categoria', 'imagen']
         labels = {
             'idProducto': 'IDProducto',
             'clase': 'Clase',
             'stock': 'Stock',
             'categoria': 'Categoria',
+            'imagen': 'Imagen'
         }
         widgets={
             'idProducto': forms.TextInput(
@@ -46,6 +47,12 @@ class AccesorioForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                     'id': 'categoria'
+                }
+            ),
+            'imagen': forms.ClearableFileInput(
+                attrs={
+                  'class': 'form-control',
+                    'id': 'imagen'  
                 }
             )
         }
