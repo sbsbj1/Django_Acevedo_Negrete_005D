@@ -74,7 +74,7 @@ messages: {
 
     <nav class="navbar navbar-expand-lg navbar-light p-4 shadow p-3 bg-white rounded" style="background-color: #a7daff !important;"  id="navbar">
       <div class="container">
-        <img src="{% static './img/Petsy Logo.png' %}" alt="" width="50" height="44" class="d-inline-block align-text-top">
+        <a href="{% url 'index' %}"><img src="{% static './img/Petsy Logo.png' %}" alt="" width="50" height="44" class="d-inline-block align-text-top"></a>
         <!--<a class="navbar-brand" href="#">Navbar</a> -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -99,11 +99,20 @@ messages: {
                 <li><a class="dropdown-item" href="{% url 'Contacto' %}">✉️Contacto</a></li>
                 <li><a class="dropdown-item" href="{% url 'calculadora' %}">Calculadora</a></li>
                 <li><a class="dropdown-item" href="{% url 'Feriados' %}">Divisas</a></li>
+                {% if user.is_authenticated  %}
                 <li><a href="{% url 'mostrar' %}" class="dropdown-item">Mostrar stock Accesorios</a></li>
                 <li><a href="{% url 'form_accesorio' %}" class="dropdown-item">Crear Accesorios</a></li>
+                <li><a href="{% url 'MostrarCliente' %}" class="dropdown-item">Mostrar Info Clientes</a></li>
+                <li><a href="{% url 'CrearCliente' %}" class="dropdown-item">Ingresar Cliente</a></li>
+                                
+              
               </ul>
             </li>
+          <li class="nav-item">
+            <a href="{%  url 'logout' %}" class="nav-link">Cerrar Sesión</a>
+          </li>
           </ul>
+              {%endif%}
         </div>
       </div>
     </nav>

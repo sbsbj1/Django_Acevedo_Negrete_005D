@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('petsy.urls')),
+    #importamos las credeciales de django
+    path('accounts/',include('django.contrib.auth.urls')),
 ]
 
 

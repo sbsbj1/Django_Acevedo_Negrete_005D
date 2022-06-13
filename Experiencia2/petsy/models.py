@@ -21,3 +21,12 @@ class Accesorio(models.Model):
 
     def __str__(self):
         return self.idProducto
+
+
+class Cliente(models.Model):
+    Rut_Cliente = models.CharField(max_length=8, primary_key=True, verbose_name='Id del cliente')
+    Nombre = models.CharField(max_length=15, verbose_name='Nombre')
+    Transaciones = models.IntegerField(verbose_name='Transaciones')
+    
+    def __str__(self):
+        return self.Rut_Cliente

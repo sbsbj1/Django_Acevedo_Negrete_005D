@@ -1,7 +1,7 @@
 from django.contrib import admin
 from unicodedata import name
 from django.urls import path 
-from .views import calculadora, Contacto, Feriados, form_accesorio, form_modaccesorio, galeria, index, registracion, somos,mostrar, form_del_accesorio
+from .views import *
 
 urlpatterns = [
     path('', index, name="index"),
@@ -15,6 +15,10 @@ urlpatterns = [
     path('form_accesorio/', form_accesorio, name="form_accesorio"), 
     path('form_modaccesorio/<id>', form_modaccesorio, name="form_modaccesorio"),
     path('form_del_accesorio/<id>', form_del_accesorio, name="form_del_accesorio"),
+    path('MostrarCliente/', MostrarCliente, name="MostrarCliente"),
+    path('CrearCliente/', CrearCliente, name="CrearCliente"),
+    path('form_modcliente/<id>', form_modcliente, name="form_modcliente"),
+    path('EliminarCliente/<id>', EliminarCliente, name="EliminarCliente"),
 
 
 ]

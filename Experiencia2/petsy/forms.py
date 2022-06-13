@@ -7,7 +7,7 @@ from django.forms.models import ModelChoiceField
 from django.forms.widgets import Widget
 
 from petsy.models import Accesorio, Categoria
-
+from petsy.models import Cliente
 
 class AccesorioForm(forms.ModelForm):
 
@@ -53,6 +53,42 @@ class AccesorioForm(forms.ModelForm):
                 attrs={
                   'class': 'form-control',
                     'id': 'imagen'  
+                }
+            )
+        }
+
+
+
+#Cliente Form
+class ClienteForm(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ['Rut_Cliente', 'Nombre', 'Transaciones']
+        labels = {
+            'Rut_Cliente': 'rut_cliente',
+            'Nombre': 'nombre',
+            'Transaciones': 'transaciones',
+        }
+        widgets={
+            'Rut_Cliente': forms.TextInput(
+                attrs={     
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese Rut Del Cliente',
+                    'id': 'Rut_Cliente'
+                }
+            ),
+            'Nombre': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese Nombre Del Cliente',
+                    'id': 'Nombre'
+                }
+            ),
+            'Transaciones': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Ingrese el Numero De Transaciones',
+                    'id': 'Transaciones'
                 }
             )
         }

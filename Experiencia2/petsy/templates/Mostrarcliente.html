@@ -16,7 +16,7 @@
 
 
     
-    <title>Petsy</title>
+    <title>InfoCliente</title>
   </head>
   <body>
     
@@ -72,26 +72,27 @@
     
     
     <div class="container">
-        <h1>Mostrando Accesorios</h1>
+        <h1>Mostrando Cliente</h1>
 
         <table class="table">
             <thead>
                 <tr>
-                    <th>IDProducto</th>
-                    <th>Clase</th>
-                    <th>Stock</th>
+                    <th>Rut_Cliente</th>
+                    <th>Nombre</th>
+                    <th>Transaciones</th>
+                    <th>Modificar Cliente</th>
+                    <th>Eliminar Cliente</th>
                 </tr>
             </thead>
             <tbody>
-            {% for ac in accesorios %}
+            {% for cl in cliente %}
 
                 <tr>
-                    <td>{{ ac.idProducto }}</td>
-                    <td>{{ ac.clase }}</td>
-                    <td>{{ ac.stock }}</td>
-                    <td>{{ ac.imagen }}</td>
-                    <td><a href="{% url 'form_modaccesorio' ac.idProducto %}">Modificar</a></td>
-                    <td><a href="{% url 'form_del_accesorio' ac.idProducto %}" class="btn btn-danger">Eliminar</a></td>
+                    <td>{{ cl.Rut_Cliente }}</td>
+                    <td>{{ cl.Nombre }}</td>
+                    <td>{{ cl.Transaciones }}</td>
+                    <td><a href="{% url 'form_modcliente' cl.Rut_Cliente %}">Modificar</a></td>
+                    <td><a href="{% url 'EliminarCliente' cl.Rut_Cliente %}" class="btn btn-danger">Eliminar</a></td>
                 </tr>
             {% endfor %}
             </tbody>
